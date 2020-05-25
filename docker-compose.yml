@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    hostname: db
+    image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    command: postgres -c listen_addresses='*'
+#  web:
+#    build: .
+#    command: >
+#      bash -c '
+#      python manage.py makemigrations service
+#      &&
+#      python manage.py migrate
+#      &&
+#      python manage.py createsuperuserwithpassword --username toren332 --password mypass321 --email ttt@ttt.ttt --preserve
+#      &&
+#      python manage.py import_tests
+#      &&
+#      python manage.py runserver --insecure 0.0.0.0:8000'
+#    volumes:
+#      - .:/code
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - db
+
